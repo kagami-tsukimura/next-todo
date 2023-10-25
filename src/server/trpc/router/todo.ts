@@ -1,4 +1,8 @@
-import { createTaskSchema, getSingleTaskSchema } from "./../../../schema/todo";
+import {
+  createTaskSchema,
+  getSingleTaskSchema,
+  updateTaskSchema,
+} from "./../../../schema/todo";
 import { authedProcedure, t } from "./../trpc";
 
 export const todoRouter = t.router({
@@ -35,5 +39,19 @@ export const todoRouter = t.router({
           id: input.taskId,
         },
       });
+    }),
+  updateTask: authedProcedure
+    .input(updateTaskSchema)
+    .mutation(async ({ ctx, input }) => {
+      const task = await ctx.prisma.task.update({
+        where: {
+          id: input.taskId,
+        },
+        data: {
+          title: input.title,
+          body: input.body,
+        },
+      });
+      return task;
     }),
 });
