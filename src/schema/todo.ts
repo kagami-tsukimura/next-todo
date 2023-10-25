@@ -5,7 +5,7 @@ export const createTaskSchema = z.object({
   body: z.string().max(5),
 });
 
-export type CreateTaskSchema = z.TypeOf<typeof createTaskSchema>;
+export type CreateTaskInput = z.TypeOf<typeof createTaskSchema>;
 
 export const updateTaskSchema = z.object({
   taskId: z.string().cuid(),
@@ -13,7 +13,7 @@ export const updateTaskSchema = z.object({
   body: z.string().max(5),
 });
 
-export type UpdateTaskSchema = z.TypeOf<typeof updateTaskSchema>;
+export type UpdateTaskInput = z.TypeOf<typeof updateTaskSchema>;
 
 export const getSingleTaskSchema = z.object({
   taskId: z.string().cuid(),
