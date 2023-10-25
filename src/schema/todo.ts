@@ -15,7 +15,7 @@ export const updateTaskSchema = z.object({
 
 export type UpdateTaskSchema = z.TypeOf<typeof updateTaskSchema>;
 
-export const getTaskSchema = z.object({
+export const getSingleTaskSchema = z.object({
   taskId: z.string().cuid(),
 });
 

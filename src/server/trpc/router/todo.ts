@@ -1,4 +1,4 @@
-import { createTaskSchema } from "./../../../schema/todo";
+import { createTaskSchema, getSingleTaskSchema } from "./../../../schema/todo";
 import { authedProcedure, t } from "./../trpc";
 
 export const todoRouter = t.router({
@@ -27,4 +27,13 @@ export const todoRouter = t.router({
       },
     });
   }),
+  getSingleTask: authedProcedure
+    .input(getSingleTaskSchema)
+    .query(({ ctx, input }) => {
+      return ctx.prisma.task.findUnique({
+        where: {
+          id: input.taskId,
+        },
+      });
+    }),
 });
