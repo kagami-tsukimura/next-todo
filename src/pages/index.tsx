@@ -14,7 +14,7 @@ const Home: NextPage = () => {
     );
   }
   return (
-    <Layout title="Todo App">
+    <Layout title="SweeTodo">
       <ArrowLeftOnRectangleIcon
         className="h-6 w-6 cursor-pointer text-blue-600"
         onClick={() => signOut()}
