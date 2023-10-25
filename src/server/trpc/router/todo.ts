@@ -1,5 +1,6 @@
 import {
   createTaskSchema,
+  deleteTaskSchema,
   getSingleTaskSchema,
   updateTaskSchema,
 } from "./../../../schema/todo";
@@ -53,5 +54,14 @@ export const todoRouter = t.router({
         },
       });
       return task;
+    }),
+  deleteTask: authedProcedure
+    .input(deleteTaskSchema)
+    .mutation(async ({ ctx, input }) => {
+      await ctx.prisma.task.delete({
+        where: {
+          id: input.taskId,
+        },
+      });
     }),
 });
