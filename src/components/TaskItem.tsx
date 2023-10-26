@@ -26,7 +26,7 @@ export const TaskItem: FC<UpdateTaskInput> = ({ taskId, title, body }) => {
         />
         <TrashIcon
           className="h-5 w-5 cursor-pointer text-blue-600"
-          onclick={() => {
+          onClick={() => {
             deleteTaskMutation.mutate({ taskId });
           }}
         />
