@@ -3,6 +3,8 @@ import type { NextPage } from "next";
 import { signOut, useSession } from "next-auth/react";
 import { Auth } from "../components/Auth";
 import { Layout } from "../components/Layout";
+import TaskForm from "../components/TaskForm";
+import TaskList from "../components/TaskList";
 
 const Home: NextPage = () => {
   const { data: session } = useSession();
@@ -20,6 +22,8 @@ const Home: NextPage = () => {
         onClick={() => signOut()}
       />
       <p className="my-3 text-xl text-blue-600">{session?.user?.name}</p>
+      <TaskForm />
+      <TaskList />
     </Layout>
   );
 };
