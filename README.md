@@ -4,7 +4,7 @@ This is an app bootstrapped according to the [init.tips](https://init.tips) stac
 
 ## Demo Page
 
-https://sweetodo-kagami-tsukimuras-projects.vercel.app/
+https://next-todo-liart.vercel.app/
 
 ## Why are there `.js` files in here?
 
